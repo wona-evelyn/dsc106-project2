@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Project 2 Report</title>
+        <style>
+            :root {
+                --color-neutral-95: hsl(220 10% 95%);
+                --color-neutral-90: hsl(220 10% 90%);
+                --color-neutral-80: hsl(220 10% 80%);
+                --color-neutral-70: hsl(220 10% 70%);
+                --color-neutral-60: hsl(220 10% 60%);
+                --color-neutral-50: hsl(220 10% 50%);
+                --color-neutral-40: hsl(220 10% 40%);
+                --color-neutral-30: hsl(220 10% 30%);
+                --color-neutral-20: hsl(220 10% 20%);
+                --color-neutral-10: hsl(220 10% 10%);
+            }
+
+            html {
+                font: 100%/1.5 system-ui;
+                counter-reset: figure;
+                background: var(--color-neutral-95);
+                max-width: min(75vw, 80em);
+                margin: 0 auto;
+            }
+
+            /* Headings */
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                line-height: 1.1;
+                font-weight: 600;
+                text-wrap: balance;
+            }
+
+            h1,
+            h2 {
+                border-bottom: 1px solid var(--color-neutral-80);
+                padding-bottom: 0.2em;
+            }
+
+            h1 {
+                margin-block: 1em 0.5rem;
+                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+                font-weight: 800;
+
+                small {
+                    display: block;
+                    width: fit-content;
+                    padding: 0.2em 0.5em;
+                    margin-inline: auto;
+                    color: white;
+                    background: var(--color-neutral-40);
+                    font-size: 40%;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+            }
+
+            h2 {
+                font-size: 180%;
+                color: var(--color-neutral-30);
+            }
+
+            h3 {
+                font-size: 130%;
+            }
+
+            /* Lists */
+
+            ul,
+            ol {
+                padding-inline-start: 2em;
+            }
+
+            li {
+                &::marker {
+                    color: var(--color-neutral-40);
+                }
+
+                + li {
+                    margin-top: 0.2em;
+                }
+            }
+
+            /* Sectioning elements */
+
+            header {
+                padding-block: 1em;
+                text-align: center;
+            }
+
+            header p {
+                margin: 0.25em 0;
+            }
+
+            main {
+                background: white;
+                color: var(--color-neutral-20);
+                border-radius: 1rem;
+                padding: 0.1rem 2rem;
+            }
+
+            /* Figures */
+
+            figure {
+                margin: 1em 0;
+                padding: 0.5rem;
+                margin-inline: -0.5em;
+                border: 1px solid var(--color-neutral-80);
+                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+                text-align: center;
+                background: white;
+
+                > img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                > figcaption {
+                    font: 500 75% var(--font-sans);
+                    background: var(--color-neutral-95);
+                    padding: 0.5rem;
+                    margin: -0.5rem;
+                    margin-top: 0.5rem;
+                    counter-increment: figure;
+                    text-align: left;
+
+                    &::before {
+                        content: "Figure " counter(figure) ": ";
+                        font-weight: bold;
+                        color: var(--color-neutral-40);
+                    }
+
+                    a:not(:hover, :focus, :active) {
+                        color: inherit;
+                        text-decoration: underline;
+                        text-decoration-color: color-mix(
+                            in lab,
+                            currentColor,
+                            transparent 70%
+                        );
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                <small>Project 2</small>
+                Persuasive or Deceptive Visualization?
+            </h1>
+
+            <p><strong>Group 51</strong></p>
+            <p>
+                <strong>Asha Diekmann</strong> — <em>adiekmann@ucsd.edu</em>
+                &nbsp;·&nbsp;
+                <strong>Evelyn Na</strong> — <em>wona@ucsd.edu</em>
+                &nbsp;·&nbsp;
+                <strong>Eric Nguyen</strong> — <em>ern010@ucsd.edu</em>
+                &nbsp;·&nbsp;
+                <strong>Raymond Wang</strong> — <em>rywang@ucsd.edu</em>
+            </p>
+        </header>
+
+        <main>
+            <h2>Proposition: “The world is transitioning away from fossil fuels.”</h2>
+
+            <p>
+                We used the World Bank’s World Development Indicators (energy
+                and climate data, pre-cleaned in the course repo). Design
+                decisions are scored from −2 (fully deceptive) to +2 (fully
+                earnest).
+            </p>
+
+            <section>
+                <h3>FOR the Proposition</h3>
+
+                <figure>
+                    <img
+                        src="true_side.png"
+                        alt="Battery-style bar chart of the fossil fuel share of energy use in 1990 (outline) versus 2015 (green fill) for Denmark, the EU, the UK, Germany and the US. The share fell in every country: by 25 points in Denmark, 11 in the EU, 10 in the UK, 8 in Germany and 4 in the US. The y-axis starts at 50 percent."
+                    />
+                    <figcaption>
+                        Fossil fuel share of energy use in 1990 (battery
+                        outline) vs. 2015 (green fill). Every country shown
+                        has drained its fossil share, led by Denmark at −25
+                        points.
+                    </figcaption>
+                </figure>
+
+                <p>Design Decisions and Rationale:</p>
+
+                <ul>
+                    <li>
+                        <strong>(−2) Hand-picked countries.</strong> We show
+                        Denmark, the EU, the UK, Germany and the US, and every
+                        one of them fell. We left out Japan, China and India,
+                        where the fossil share rose. After checkpoint feedback
+                        we also removed the World bar, whose share moved only
+                        about one point (81% to 80%) and weakened the story.
+                        Nothing on the chart tells the reader about these
+                        omissions.
+                    </li>
+                    <li>
+                        <strong>(−1.5) Bar axis starts at 50%.</strong>
+                        Truncating the bars makes the green fill look like it
+                        drained far more than it did. Denmark’s real drop is 25
+                        points, but its bar visually shrinks from about 40
+                        units above the baseline to about 15. The axis is
+                        labeled, so a careful reader can catch it. A
+                        0–100% axis would make every drop look much smaller
+                        and the battery effect would largely disappear.
+                    </li>
+                    <li>
+                        <strong>(−1) Battery metaphor.</strong> Drawing 1990 as
+                        a full outline and 2015 as the fill makes every drop
+                        look like a battery running down, which suggests the
+                        process is heading toward empty. Even Denmark is still
+                        at 65% fossil, and nothing in the metaphor says so. The
+                        alternative was a plain 1990-vs-2015 bar chart; the
+                        battery makes the “before and after” readable at a
+                        glance.
+                    </li>
+                    <li>
+                        <strong>(−1.5) Shares instead of totals.</strong> A
+                        falling share does not mean falling use, since a share
+                        can drop while total consumption grows. The chart
+                        shows only the share, and it never shows how much
+                        fossil energy these countries or the world use. The 1990
+                        and 2015 endpoints are also a choice, since other years
+                        would give different drops.
+                    </li>
+                    <li>
+                        <strong>(+1.5) Neutral title and honest labeling.</strong>
+                        The title simply names the metric and years, the
+                        subtitle explains what the outline and the fill mean,
+                        every value and change is labeled, and the footer cites
+                        the World Bank and the data year. The slant comes from
+                        selection and framing, so the numbers themselves can be
+                        checked.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>AGAINST the Proposition</h3>
+
+                <figure>
+                    <img
+                        src="false_side.png"
+                        alt="Dark-themed line chart of the change since 1990 in world CO2 emissions (up 65 percent, from 20.6 to 34.0 gigatonnes), fossil energy use (up 59 percent, from 7.1 to 11.3 gigatonnes of oil equivalent) and the fossil share of energy (flat, from 80.8 percent to 79.7 percent), with a vertical marker for the Paris Agreement in 2015."
+                    />
+                    <figcaption>
+                        Change since 1990 in world CO₂ emissions, fossil energy
+                        use and the fossil share of energy. Totals climb
+                        steadily, including after the 2015 Paris Agreement,
+                        while the share stays at about 80%.
+                    </figcaption>
+                </figure>
+
+                <p>Design Decisions and Rationale:</p>
+
+                <ul>
+                    <li>
+                        <strong>(−1.5) Starting in 1990.</strong> The earlier
+                        decline in the world’s fossil share, from about 84% in
+                        1971 to about 79% by 1989, is cut off. From 1990 on the
+                        share looks flat, so the climbing lines appear to be
+                        the whole story.
+                    </li>
+                    <li>
+                        <strong>(−1.5) World totals instead of rates.</strong>
+                        Total CO₂ and fossil energy use are up 65% and 59%
+                        since 1990, but CO₂ per person has been roughly flat
+                        since 2010 and CO₂ per unit of GDP is down about 25%.
+                        Population and economic growth are left out. We also
+                        leave out per-country and rich-country data, where
+                        emissions fell.
+                    </li>
+                    <li>
+                        <strong>(−1) Paris Agreement annotation.</strong> The
+                        vertical marker and the note “CO₂ kept rising: 32.9 to
+                        34.0 Gt” imply the agreement failed, but only three
+                        years of data follow it. It gives the chart a narrative
+                        and a political hook, and every number in it is
+                        accurate.
+                    </li>
+                    <li>
+                        <strong>(−0.5) Color and line weight.</strong> A thick,
+                        saturated red CO₂ line on a dark background pulls the
+                        eye up the chart, while the thin blue share line sits
+                        near zero and is easy to skip. The fossil energy use
+                        line also stops in 2015 while CO₂ runs to 2018, so the
+                        two totals do not share an end year.
+                    </li>
+                    <li>
+                        <strong>(+1.5) Labeled values and a visible flat
+                        line.</strong> Start and end values are written next to
+                        every line, the source is cited, and the subtitle says
+                        fossil fuels still supply about 80% of energy, “within
+                        a point of where they stood in 1990.” The strongest
+                        counter-evidence for our own claim is part of the chart,
+                        so a careful reader can weigh it.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Final Reflection</h2>
+
+                <p>
+                    The data was the easy part. Both files come from the same
+                    World Bank source, are cleanly labeled, and needed only
+                    simple transformations: percentage-point changes between
+                    two years, change since a baseline year, and a handful of
+                    group totals. The hard part was persuasion, because every
+                    chart forced us to decide what to leave out. Neither side
+                    needed a false number. Denmark’s fossil share fell 25
+                    points while the world’s moved about one point, and world
+                    CO₂ rose 65% while the EU’s fell 19%. All of it is accurate,
+                    and the story each chart tells came from which countries,
+                    metrics and start years we included. The checkpoint
+                    feedback showed how far this goes: removing the World bar
+                    from the battery chart made the “for” argument cleaner and
+                    also made it more selective. What surprised us most was how
+                    much the baseline year changes the story. Starting in 1990
+                    hides the fall in the world’s fossil share from about 84%
+                    to about 79% between 1971 and 1989, so the share looks flat
+                    only because of where we start. We were also surprised by
+                    how much design alone adds credibility. The battery makes
+                    selective evidence feel intuitive, and a dark, high-contrast
+                    line chart makes rising totals feel urgent.
+                </p>
+
+                <p>
+                    We now define ethical visualization as one that lets the
+                    reader reconstruct the fuller picture, even when it leans
+                    one way. Persuasion on its own is not unethical. The
+                    problem starts when a choice is hidden. Totals versus
+                    shares, the start year, the countries shown and the axis
+                    range all steer a reader, and they only become misleading
+                    when the reader cannot tell they were chosen. Our two sides
+                    share many of the same moves: both leave out data that
+                    contradicts them, both choose the baseline that suits them,
+                    and both pick whichever metric (a share or a total) serves
+                    the argument.
+                </p>
+
+                <p>
+                    We would call a persuasive choice acceptable if three
+                    things hold: the data is accurate, the choice is visible on
+                    the chart, and a careful reader could spot it from the
+                    labels alone. It becomes misleading when the reader would
+                    need information we deliberately left out. By that test our
+                    truncated bar axis is borderline, since it is labeled, but
+                    our hand-picked countries on the true side and the
+                    pre-1990 decline we cut off on the false side are not
+                    flagged on either chart, and that is where we think we cross
+                    the line. If we were publishing these, we would keep the
+                    framing but add clear notes on the selected years and
+                    countries. The gray area is real, because a choice only
+                    works if the reader does not notice it, and the same choice
+                    can be fine for a reader who is looking for it and
+                    misleading for one who is not.
+                </p>
+            </section>
+        </main>
+    </body>
+</html>
